@@ -1,0 +1,21 @@
+<ul class="nav nav-pills">
+  <li><%= link_to('New Recipe', new_recipe_path) %></li>
+  <li><%= link_to('Edit Recipe', edit_recipe_path(@recipe)) %></li>
+  <li><%= link_to('Delete Recipe', @recipe, :method => :delete, :confirm => 'Are you sure?') %></li>
+  <div class='spacer'></div>
+</ul>
+
+<div class="row">
+  <div class="col-md-5 col-sm-5">
+    <p class="lead"><%= @recipe.name %></p>
+    <%= image_tag(@recipe.image) %>
+  </div>
+
+  <div class="col-md-7 col-sm-7">
+    <% @recipe.ingredients.each do |ingredient| %>
+      <%= ingredient.name %>
+      <%= image_tag(ingredient.image,  size: "40x40") %>
+    <% end %>
+  </div>
+ </div>
+
